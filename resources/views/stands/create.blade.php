@@ -220,8 +220,8 @@
 
 
                 <div class="button-containerCrear">
-                    <button type="submit" class="btn btn-submit btnEnviarcrearstandindex">Enviar</button>
                     <a href="{{ route('stand.index') }}" class="btn btnvolverstandindex">Volver</a>
+                    <button type="submit" class="btn btn-submit btnEnviarcrearstandindex">Enviar</button>
                 </div>
                 </form>
         </div>

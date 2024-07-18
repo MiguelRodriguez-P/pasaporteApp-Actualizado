@@ -67,8 +67,8 @@
                     </div>
                 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-Crear-UsuarioEventoo" >Crear Usuario</button>
                         <a href="{{route('eventos.index')}}" class="btn btn-primary btn-volverEventoo" >Volver</a>
+                        <button type="submit" class="btn btn-primary btn-Crear-UsuarioEventoo" >Crear Usuario</button>
                 </div>
                 </form>
             </div>

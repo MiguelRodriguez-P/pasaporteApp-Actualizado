@@ -180,8 +180,8 @@
                 <div class="row text-center">
                     <div class="col">
                     <div class="d-flex flex-column flex-md-row justify-content-center align-items-center pb-3">
-                    <button type="submit" class="btn GuardarEditarevento ">Guardar Cambios</button><br>
                         <a href="{{ route('UserEvent.listaeventos') }}" class="btn VolverEditarevento">Volver</a>
+                    <button type="submit" class="btn GuardarEditarevento ">Guardar Cambios</button><br>
                     </div>
                     </div>
                 </div>

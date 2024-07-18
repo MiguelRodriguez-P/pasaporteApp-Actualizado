@@ -84,8 +84,8 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary Btn-guardareditaruserss">Guardar</button>
                                 <a href="@if(auth()->user()->hasRole('Administrador')) {{ route('user.listarusuarios') }}  @elseif(auth()->user()->hasRole('Empresa')) {{ route('empresa.inicio') }}  @elseif(auth()->user()->hasRole('Evento')) {{ route('empresas.index') }} @endif" class="btn btn-secondary btn-volverdetodaslas">Volver</a>
+                                <button type="submit" class="btn btn-primary Btn-guardareditaruserss">Guardar</button>
                             </div>
                         </form>
                     </div>

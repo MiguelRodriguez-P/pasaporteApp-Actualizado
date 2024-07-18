@@ -60,8 +60,8 @@
 
                 <div>
                         <div class="col accionescreate">
+                            <button onclick="window.location.href='{{ route('empresas.index') }}'" class="createuseremvolver">Volver</button>
                             <button type="submit" class="createuserem" id="">Crear Usuario</button>
-                        //  <button onclick="window.location.href='{{ route('empresas.index') }}'" class="createuseremvolver">Volver</button>
                         </div>
                     </div>
                     </form>

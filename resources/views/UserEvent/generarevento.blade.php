@@ -142,8 +142,8 @@
                         <!-- Botones para enviar y volver -->
                         <div class="row">
                             <div class="col text-center">
-                                <button type="submit" id="btnEnviarcrearevento" class="btnEnviarcrearevento btn  btn-submit">Enviar</button>
                                 <a href="{{ route('UserEvent.listaeventos') }}" id ="btnVolvercrearevento" class=" btn  " id="btnVolver">Volver</a>
+                                <button type="submit" id="btnEnviarcrearevento" class="btnEnviarcrearevento btn  btn-submit">Enviar</button>
                             </div>
                         </div>
                     </form>
