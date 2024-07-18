@@ -1,6 +1,10 @@
 <header>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </header>
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @extends('layouts.app')
 @section('content')
 <body style="background-image: url('{{ asset('images/fondoblanco.png') }}');">
@@ -9,11 +13,31 @@
             </div>
             <div class="card-body">
             <div class="caja-adminplace caja-adminEventoDetallesj">
-            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
-                    <div class="alert alert-success" role="alert" style="position: relative;">
-                        <span id="success-message"></span>
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
+                        </div>
+                    </div>
+                @if(session('success'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        showSuccessMessage('{{ session('success') }}');
+                    });
+                </script> 
+                @endif
+                @if(session('error'))
+                <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;background-image: url('{{ asset('images/Messagedened.png') }}');">
+                    <div class="alert alert-danger" role="alert" style="position: relative;">
+                        <span id="error-message">{{ session('error') }}</span>
                     </div>
                 </div>
+            @endif
+    
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
+                        </div>
+                    </div>
 
                     @if(session('success'))
                     <script>

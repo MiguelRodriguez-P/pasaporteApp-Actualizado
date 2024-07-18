@@ -1,3 +1,7 @@
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @extends('layouts.app')
 @section('content')
 <!DOCTYPE html>

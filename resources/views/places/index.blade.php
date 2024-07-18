@@ -10,11 +10,11 @@
             </div>
             <div class="card-body">
             <div class="caja-adminplace">
-            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
-                    <div class="alert alert-success" role="alert" style="position: relative;">
-                        <span id="success-message"></span>
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
+                        </div>
                     </div>
-                </div>
                 @if(session('success'))
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
@@ -30,19 +30,7 @@
                 </div>
             @endif
     
-            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
-                        <div class="alert alert-success" role="alert" style="position: relative;">
-                            <span id="success-message"></span>
-                        </div>
-                    </div>
-
-                    @if(session('success'))
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            showSuccessMessage('{{ session('success') }}');
-                        });
-                    </script>
-                    @endif
+            
                     <img class="logo-visitados mx-auto" src="{{asset('images/Lugar.png')}}" alt="Imagen responsive">
                     <h1 class="listadolugares display-4">
                     <div class="grayy-textolistplace d-md-inline">

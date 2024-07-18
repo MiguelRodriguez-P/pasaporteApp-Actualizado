@@ -1,3 +1,7 @@
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @section('content')
 <body style="background-image: url('{{ asset('images/fondoblanco.png') }}');">
     <div class="container ">
