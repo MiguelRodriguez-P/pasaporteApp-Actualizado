@@ -183,8 +183,8 @@
                             <div class="container-botones">
                                 <div class="d-flex flex-column flex-md-row justify-content-center align-items-center pb-3">
                                     <!-- <button type="button" class="btn delete2 mb-2 mb-md-0 me-md-2" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-stand-id="{{ $stand->id }}">Eliminar Stand</button> -->
-                                    <button type="submit" class="btn edit editbtnstand  mb-2 mb-md-0 me-md-2">Actualizar Stand</button>
                                     <a class="btn back" href="{{ route('stand.index', ['eventId' => $stand->event->id]) }}">Volver</a>
+                                    <button type="submit" class="btn edit editbtnstand  mb-2 mb-md-0 me-md-2">Actualizar Stand</button>
                                 </div>
                             </div>
                             <!-- Modal de confirmación de eliminación

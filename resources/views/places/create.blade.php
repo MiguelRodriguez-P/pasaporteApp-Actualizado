@@ -81,8 +81,8 @@
                         </div>
 
                         <div class="col">
+                            <button type="button" onclick="window.location.href='{{route('places.index')}}'" class="btn btn-primary btnvolverplacecreateadmin" id="botonneditar">Volver</button>
                                 <button type="submit" class="btn btn-primary btnRegistrarplacecreate" id="botonneditar">Registrar</button>
-                                <button type="button" onclick="window.location.href='{{route('places.index')}}'" class="btn btn-primary btnvolverplacecreateadmin" id="botonneditar">Volver</button>
                             </div>
                         </div>
                     </form>

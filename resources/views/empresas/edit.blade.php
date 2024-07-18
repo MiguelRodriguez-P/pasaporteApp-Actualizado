@@ -72,8 +72,8 @@
                 </div>
                     <div class="row text-center">
                         <div class="col">
-                            <button type="submit" class="btn btn-primary" id="btn">Actualizar Usuario</button>
                             <a href="{{route('empresa.index')}}" class="btn btn-primary" id="btn">Volver</a>
+                            <button type="submit" class="btn btn-primary" id="btn">Actualizar Usuario</button>
                         </div>
                     </div>
 
