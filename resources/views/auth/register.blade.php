@@ -71,7 +71,10 @@
                         <span id="password-error" class="error-message mensajeErrorContra"></span>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="privacy_terms" required>
-                            <label class="form-check-label" for="privacy_terms">Acepto los términos de privacidad</label>
+                            <label class="form-check-label" for="privacy_terms">
+                                    Acepto los
+                                    <a href="/images/Terminos y condiciones.pdf" target="_blank">términos de privacidad</a>
+                            </label>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="is_company" name="is_company">
