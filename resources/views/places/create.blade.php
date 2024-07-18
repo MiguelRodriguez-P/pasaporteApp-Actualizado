@@ -8,25 +8,39 @@
     <div class="container-fluid ">
         <div class="caja-adminplacedit mt-5">
             <div class="carta-empresaplacesusers">
-                <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
-                    <div class="alert alert-success" role="alert" style="position: relative;">
-                        <span id="success-message"></span>
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
+                        </div>
                     </div>
-                </div>
                 @if(session('success'))
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         showSuccessMessage('{{ session('success') }}');
                     });
-                </script>
+                </script> 
                 @endif
                 @if(session('error'))
-                <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;">
+                <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;background-image: url('{{ asset('images/Messagedened.png') }}');">
                     <div class="alert alert-danger" role="alert" style="position: relative;">
                         <span id="error-message">{{ session('error') }}</span>
                     </div>
                 </div>
-                @endif
+            @endif
+    
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
+                        </div>
+                    </div>
+
+                    @if(session('success'))
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            showSuccessMessage('{{ session('success') }}');
+                        });
+                    </script>
+                    @endif
                 <img class="logos-evaluationregistro mx-auto d-block" src="{{asset('images/Lugar.png')}}" alt="">
                 <br>
                 <div class="text-center">
@@ -67,8 +81,8 @@
                         </div>
 
                         <div class="col">
+                            <button type="button" onclick="window.location.href='{{route('places.index')}}'" class="btn btn-primary btnvolverplacecreateadmin" id="botonneditar">Volver</button>
                                 <button type="submit" class="btn btn-primary btnRegistrarplacecreate" id="botonneditar">Registrar</button>
-                                <button type="button" onclick="window.location.href='{{route('places.index')}}'" class="btn btn-primary btnvolverplacecreateadmin" id="botonneditar">Volver</button>
                             </div>
                         </div>
                     </form>

@@ -1,3 +1,7 @@
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @extends('layouts.app')
 
 @section('content')
@@ -12,25 +16,39 @@
                             <img class="logo-createStand d-block" src="{{ asset('images/logoStand.png') }}" alt="">
                             <span class="StandCreate d-inline-block">STAND</span>
                         </div>
-                        <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
-                            <div class="alert alert-success" role="alert" style="position: relative;">
-                                <span id="success-message"></span>
-                            </div>
+                        <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
                         </div>
-                        @if(session('success'))
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                showSuccessMessage('{{ session('success') }}');
-                            });
-                        </script>
-                        @endif
-                        @if(session('error'))
-                        <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;">
-                            <div class="alert alert-danger" role="alert" style="position: relative;">
-                                <span id="error-message">{{ session('error') }}</span>
-                            </div>
+                    </div>
+                @if(session('success'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        showSuccessMessage('{{ session('success') }}');
+                    });
+                </script> 
+                @endif
+                @if(session('error'))
+                <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;background-image: url('{{ asset('images/Messagedened.png') }}');">
+                    <div class="alert alert-danger" role="alert" style="position: relative;">
+                        <span id="error-message">{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
+    
+            <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
                         </div>
-                        @endif
+                    </div>
+
+                    @if(session('success'))
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            showSuccessMessage('{{ session('success') }}');
+                        });
+                    </script>
+                    @endif
                         <br>
                         <br>
                         <form class="stand-form" action="{{ route('stand.update', ['stand' => $stand->id] ) }}" method="POST" enctype="multipart/form-data">
@@ -165,8 +183,8 @@
                             <div class="container-botones">
                                 <div class="d-flex flex-column flex-md-row justify-content-center align-items-center pb-3">
                                     <!-- <button type="button" class="btn delete2 mb-2 mb-md-0 me-md-2" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-stand-id="{{ $stand->id }}">Eliminar Stand</button> -->
-                                    <button type="submit" class="btn edit editbtnstand  mb-2 mb-md-0 me-md-2">Actualizar Stand</button>
                                     <a class="btn back" href="{{ route('stand.index', ['eventId' => $stand->event->id]) }}">Volver</a>
+                                    <button type="submit" class="btn edit editbtnstand  mb-2 mb-md-0 me-md-2">Actualizar Stand</button>
                                 </div>
                             </div>
                             <!-- Modal de confirmación de eliminación

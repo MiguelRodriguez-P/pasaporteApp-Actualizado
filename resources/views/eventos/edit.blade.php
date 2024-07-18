@@ -1,3 +1,7 @@
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @section('content')
 <body style="background-image: url('{{ asset('images/fondoblanco.png') }}');">
     <div class="container ">
@@ -44,8 +48,8 @@
                     </select>
                     <div class="row mt-3 text-center">
                         <div class="col">
-                            <button type="submit" class="btn btn-primary" id="btn">Guardar</button>
                             <a href="{{route('places.index')}}" class="btn btn-danger" id="btn">Volver</a>
+                            <button type="submit" class="btn btn-primary" id="btn">Guardar</button>
                         </div>
                     </div>
 

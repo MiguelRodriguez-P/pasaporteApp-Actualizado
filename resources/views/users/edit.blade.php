@@ -1,3 +1,7 @@
+<head>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
 @extends('layouts.app')
 
 @section('content')
@@ -12,25 +16,27 @@
                         </div>
                     </div>
                     <div class="card-body">
-                    <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
-                            <div class="alert alert-success" role="alert" style="position: relative;">
-                                <span id="success-message"></span>
-                            </div>
+                    <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;background-image: url('{{ asset('images/Messageexito.png') }}');">
+                        <div class="alert alert-success" role="alert" style="position: relative;">
+                            <span id="success-message"></span>
                         </div>
-                        @if(session('success'))
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                showSuccessMessage('{{ session('success') }}');
-                            });
-                        </script>
-                        @endif
-                        @if(session('error'))
-                        <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;">
-                            <div class="alert alert-danger" role="alert" style="position: relative;">
-                                <span id="error-message">{{ session('error') }}</span>
-                            </div>
-                        </div>
-                        @endif
+                    </div>
+                @if(session('success'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        showSuccessMessage('{{ session('success') }}');
+                    });
+                </script> 
+                @endif
+                @if(session('error'))
+                <div id="error-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: block; z-index: 9999;background-image: url('{{ asset('images/Messagedened.png') }}');">
+                    <div class="alert alert-danger" role="alert" style="position: relative;">
+                        <span id="error-message">{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
+    
+        
                         <form method="post" action="@if(auth()->user()->hasRole('Administrador')) {{ route('user.update', $user->id) }} @elseif(auth()->user()->hasRole('Empresa')) {{ route('user.updates', $user->id) }} @elseif(auth()->user()->hasRole('Evento')) {{ route('user.updatess', $user->id) }} @endif">
                             @method('PUT')
                             @csrf
@@ -84,8 +90,8 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary Btn-guardareditaruserss">Guardar</button>
                                 <a href="@if(auth()->user()->hasRole('Administrador')) {{ route('user.listarusuarios') }}  @elseif(auth()->user()->hasRole('Empresa')) {{ route('empresa.inicio') }}  @elseif(auth()->user()->hasRole('Evento')) {{ route('empresas.index') }} @endif" class="btn btn-secondary btn-volverdetodaslas">Volver</a>
+                                <button type="submit" class="btn btn-primary Btn-guardareditaruserss">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -93,6 +99,7 @@
             </div>
         </div>
     </div>
+    <!-- dasdasdas -->
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
