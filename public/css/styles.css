@@ -1738,14 +1738,15 @@ input[type=checkbox]:checked~.sidebarIconToggle>.horizontal {
     FONT-FAMILY: 'Montserrat', sans-serif;
   }
   .logo-editplacerest {
-    height: 170px;
+    height: 96px;
     margin: 0 auto;
     border-radius: 100%;
     border: 5px solid white;
-    left: 0vh;
+    left: -3vh;
     position: relative;
-    top: 6vh;
-    margin-top: -11vh;
+    top: 10vh;
+    margin-top: 2vh;
+}
 }
 .caja-adminplacecontra2 {
   width: 47%;
@@ -14615,11 +14616,12 @@ transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
         width: 20%;
       }
       .formplaceregis {
-        margin-top: -8%;
+              /* margin-top: -8%; */
         /* margin-bottom: 11px; */
         padding-top: 9%;
-        width: 82%;
-        margin-left: 0%;
+        top: 2vh;
+        width: 79%;
+        margin-left: 3%;
       }
       .formplaceregiscreate {
         margin-top: -5%;
@@ -21413,10 +21415,11 @@ background-color: rgb(145 137 137 / 46%) !important;
 }
 
 .labelresetcontraseña{
-  margin-left: 12vh;
+  margin-left: 3vh;
+  margin-top: 1vh;
+  top: 1vh;
   color: rgb(143, 35, 58);
-  /* background: gray; */
-  font-size: 20;
+
 }
 .mensajeerrorresetcon{
   margin-left: -8vh;
