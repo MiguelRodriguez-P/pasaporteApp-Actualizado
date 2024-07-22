@@ -3,7 +3,7 @@
 @section('content')
 <body style="background-image: url('{{ asset('images/fondoblanco.png') }}');">
     <div class="container-fluid">
-    <div class="caja-adminplaceditCREATErest mt-2">  
+    <div class="caja-adminplaceditCREATErest mt-2 Caja-resetPassword">  
         <div class="card-empresa">
         <div id="success-message-container" class="position-fixed top-0 start-50 translate-middle-x text-center" style="display: none; z-index: 9999;">
                     <div class="alert alert-success" role="alert" style="position: relative;">
