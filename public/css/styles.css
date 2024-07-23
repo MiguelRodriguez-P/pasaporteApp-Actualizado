@@ -21465,17 +21465,7 @@ background-color: rgb(145 137 137 / 46%) !important;
   height: auto;
   background-color: white;
 }
-   Card-reset-password {
-  max-width: 669px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: -169px;
-  color: #ffffff;
-  font-weight: bold;
-  height: auto;
-  background-color: white;
-}
+
 .caja-adminplaceditCREATE {
   width: 72%;
   height: auto;
@@ -22609,7 +22599,7 @@ box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, 
   border-radius: 20px;
   top: -21vh;
 }
-.Card-reset-password{
+.Cardresetpassword{
   max-width: 669px;
   margin: auto;
   padding: 20px;
