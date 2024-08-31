@@ -20,7 +20,7 @@ class InvitadosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()                                                                                                                         
+    public function index()
     {
         //
         $eventos = Event::all();
@@ -37,7 +37,7 @@ class InvitadosController extends Controller
         //
         return view('invitados/create');
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,33 +45,46 @@ class InvitadosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+    public function store(Request $request)
+    {
+        $id = $request->input('Correo');
+        echo $id;
+        $validarInvit = User::where('email', $id)->first();
+        echo $validarInvit;
+        
+        if ($validarInvit){
+            $validarInvit->assignRole('Visitante');
+            Auth::login($validarInvit);
+            $eventos = Event::all();
+            return redirect()->route('index', compact('eventos'));
+        } else{
+            $userData = $request->validate([
+                'NombreCompleto' => 'required',
+                'Apellidos' => 'required',
+                'Correo' => 'required',
+                'Telefono' => 'required',
+            ]);
+    
+            $user = new User();
+            $user->name = $request->input('NombreCompleto') . ' ' . $request->input('Apellidos');
+            $user->email = $request->input('Correo');
+            $user->phone_number = $request->input('Telefono');
+            $user->rol_id = 2; // Ajusta esto según tu lógica para asignar el rol
+            $user->save();
+            $user->assignRole('Visitante');
+            Auth::login($user);
     
     
-     public function store(Request $request)
-     {
-         $userData = $request->validate([
-             'NombreCompleto' => 'required',
-             'Apellidos' => 'required',
-             'Correo' => 'required',
-             'Telefono' => 'required',
-         ]);
-     
-         $user = new User();
-         $user->name = $request->input('NombreCompleto') . ' ' . $request->input('Apellidos');
-         $user->email = $request->input('Correo');
-         $user->phone_number = $request->input('Telefono');
-         $user->rol_id = 2; // Ajusta esto según tu lógica para asignar el rol
-         $user->save();
-         $user->assignRole('Visitante');
-         Auth::login($user);
+            $eventos = Event::all();
+            return redirect()->route('index', compact('eventos'));
+            return view('index', compact('eventos'));
+        }
         
-        
-        $eventos = Event::all();
-        return redirect()->route('index',compact('eventos'));
-        return view('index',compact('eventos'));
-     }
-        
-    
+    }
+
+
     /**
      * Display the specified resource.
      *

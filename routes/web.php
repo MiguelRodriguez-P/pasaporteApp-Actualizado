@@ -101,7 +101,7 @@ Route::middleware(['auth', 'role:Administrador',])->group(function () {
     // Route::resource('empresa', EmpresaControler::class);
     Route::resource('places',PlacesController::class);
     Route::resource('schedule',ScheduleController::class);
-    //Route::resource('eventos',EventController::class); 
+    //Route::resource('eventos',EventController::class);
     Route::get('/eventos/create', [EventController::class, 'create'])->name('eventos.create');
     Route::get('/eventos/index', [EventController::class, 'index'])->name('eventos.index');
     Route::post('/eventos/store', [EventController::class, 'store'])->name('eventos.store');

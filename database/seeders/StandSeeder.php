@@ -31,6 +31,8 @@ class StandSeeder extends Seeder
             'calification'=> 0.0,
             'qr_code'=> $base64QrCode,
             'user_id'=> 4,
+            'evento_id'=> 1,
+            'places_id'=> 1
         ]);
         //INSERT INTO `passports`(`id`, `date`, `stand_id`, `user_id`) VALUES ('1','2023-11-20 10:13:00','1','2') Para Crear un passport
 
