@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <!-- Botones para enviar y volver -->
-                        <div class="row">
+                        <div class="row text-center">
                             <div class="col text-center">
                                 <a href="{{ route('UserEvent.listaeventos') }}" id ="btnVolvercrearevento" class=" btn  " id="btnVolver">Volver</a>
                                 <button type="submit" id="btnEnviarcrearevento" class="btnEnviarcrearevento btn  btn-submit">Enviar</button>

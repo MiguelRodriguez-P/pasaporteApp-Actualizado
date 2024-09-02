@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Places;
 use App\Services\AuthService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ use App\Models\Evaluation;
 use App\Models\Event;
 use App\Models\Evento;
 use App\Models\Place_event;
+use App\Models\Place;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\Auth;
 use App\Models\Passport;
@@ -74,7 +76,9 @@ class StandController extends Controller
         $this->userInauthenticated();
         $event= Event::all();
         $classifications = Classification::all();
-        return view('stands/create', compact('classifications','event'));
+        $places = Places::all();
+
+        return view('stands/create', compact('classifications', 'places', 'event'));
     }
 
     /**

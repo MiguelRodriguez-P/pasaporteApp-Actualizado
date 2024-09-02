@@ -7651,9 +7651,8 @@ box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, 
   #btnVolvercrearevento {
     position: relative;
     top: -12vh;
-    margin-left: 3%;
+    
     width: auto;
-    left: -26vh;
   }
     #btnAdd {
       margin-left: 73%;

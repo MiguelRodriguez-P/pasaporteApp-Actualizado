@@ -63,7 +63,7 @@
 
 
                         <!-- por favor no quitar el siguiente label, es muy necesario en el proyecto   -->
-                        <label id="numero-imagenes-label">Número de imágenes</label>    
+                        <label id="numero-imagenes-label">Número de imágenes</label>
                         <!--  este label es muy importante, por favor no quitar  -->
 
 
@@ -80,7 +80,10 @@
                         {{--  Selecciona Lugar --}}
                     <div class="formulario rounded col-md-8 d-flex">
                         <select id="place_id" name="place_id" class="form-controlstand ">
-                        <option value="">Selecciona un lugar</option>
+                        <option value="" selected disabled>Selecciona un lugar</option>
+                        @foreach($places as $place)
+                        <option value="{{ $place->id }}">{{ $place->name }}</option>
+                        @endforeach
                         </select>
                     </div>
 
@@ -1099,7 +1102,7 @@ document.querySelectorAll('.delete-image').forEach(button => {
           const data = await response.json();
   
           // Limpiar opciones existentes
-          place.innerHTML = '<option value="">Selecciona un lugar</option>';
+          
   
           // Construir opciones para el select de lugares
           data.places.forEach(element => {
