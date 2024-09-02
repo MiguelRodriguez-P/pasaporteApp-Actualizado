@@ -43,6 +43,8 @@ use App\Http\Controllers\MetricasController;
 Route::get('/stands/{idStand}', [StandController::class, 'show'])->name('stands.show');
 Route::get('/',[App\Http\Controllers\indexController::class, 'index'])->name('index');
 
+
+
 Auth::routes();
  
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

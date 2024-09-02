@@ -50,10 +50,7 @@ class InvitadosController extends Controller
     public function store(Request $request)
     {
         $id = $request->input('Correo');
-        echo $id;
         $validarInvit = User::where('email', $id)->first();
-        echo $validarInvit;
-        
         if ($validarInvit){
             $validarInvit->assignRole('Visitante');
             Auth::login($validarInvit);
