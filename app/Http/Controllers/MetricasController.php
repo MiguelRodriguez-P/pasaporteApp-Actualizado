@@ -79,7 +79,7 @@ class MetricasController extends Controller
     $evaluaciones = Evaluation::with(['stand', 'criterio'])
     ->where('stand_id', $idStand)
     ->groupBy('stand_id', 'criterio_id') // Agrupar por ID del stand y ID del criterio
-    ->selectRaw('stand_id, criterio_id, AVG(rank) as avg_rank') // Calcular el promedio del rank
+    ->selectRaw("stand_id, criterio_id, AVG(`rank`) AS avg_rank") // Calcular el promedio del rank
     ->get();
 
     return view('metricas/metricas_stand', compact('datosUsuarios', 'evaluaciones','idStand', 'filtroEdad', 'filtroGenero','filtroFecha'));
@@ -341,7 +341,7 @@ public function limpiarFiltros_stand(Request $request)
         $evaluaciones = Evaluation::with(['stand', 'criterio'])
         ->where('stand_id', $idStand)
         ->groupBy('stand_id', 'criterio_id') // Agrupar por ID del stand y ID del criterio
-        ->selectRaw('stand_id, criterio_id, AVG(rank) as promedio_rank') // Calcular el promedio del rank
+        ->selectRaw("stand_id, criterio_id, AVG(`rank`) as promedio_rank1") // Calcular el promedio del rank
         ->get();
     
        
@@ -444,7 +444,7 @@ public function limpiarFiltros_stand(Request $request)
             $evaluaciones = Evaluation::with(['criterio'])
                 ->whereIn('criterio_id', $event_criterios)
                 ->groupBy('criterio_id')
-                ->selectRaw('criterio_id, AVG(rank) as avg_rank')
+                ->selectRaw("criterio_id, AVG(rank) as avg_rank")
                 ->get();
 
 

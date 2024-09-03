@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <body style="background-image: url('{{ asset('images/fondoblanco.png') }}');">
     <div class="content">
         <div class="card-body">
@@ -11,7 +12,7 @@
                         por rango de edad</h2>
                 </div>
                 <br>
-            
+
                 <div id="barchart" class="barchart">
 
                 </div>
@@ -19,26 +20,26 @@
         </div>
 
         <div class="card-body">
-            <div class="caja-admin-grafica">            
+            <div class="caja-admin-grafica">
                 <div class="container-titulo">
-                <h2 id="titlegraphic">Visitas al Stand</h2>
+                    <h2 id="titlegraphic">Visitas al Stand</h2>
                     <h2 id="subtitlegraphic">Día a Día</h2>
-                <br>
+                    <br>
                 </div>
                 <div id="barchart2" class="barchart2">
                 </div>
             </div>
         </div>
-        
+
         <div class="card-body">
             <div class="caja-admin-grafica">
-                    <div class="container-titulo">
-                        <h2 id="titlegraphic">Visitas al Stand</h2>
-                            <h2 id="subtitlegraphic">por horas</h2>
-                <br>
+                <div class="container-titulo">
+                    <h2 id="titlegraphic">Visitas al Stand</h2>
+                    <h2 id="subtitlegraphic">por horas</h2>
+                    <br>
 
-                        </div>
-                    <div id="barchart3" class="barchart3">
+                </div>
+                <div id="barchart3" class="barchart3">
                 </div>
             </div>
         </div>
@@ -47,109 +48,109 @@
             <div class="caja-admin-grafica">
                 <div class="container-titulo">
                     <h2 id="titlegraphic">Resultado</h2>
-                        <h2 id="subtitlegraphic">de percepción del Stand</h2>
-                <br>
+                    <h2 id="subtitlegraphic">de percepción del Stand</h2>
+                    <br>
 
-                    </div>
+                </div>
                 <div id="chart" class="barchart"></div>
             </div>
 
         </div>
     </div>
     <div class="card-body">
-      <div class="caja-admin-grafica">
+        <div class="caja-admin-grafica">
             <div class="container-titulo">
                 <h2 id="titlegraphic">Visitas al Stand</h2>
-                    <h2 id="subtitlegraphic"> por genero</h2>
+                <h2 id="subtitlegraphic"> por genero</h2>
                 <br>
 
-                </div>
-                
-    <div id="container-donutcharts">
-                <div>
-                <div id="donutchart"></div>
-                </div>
-                <div>
-                <div id="donutchart2"></div>
-                </div>
-                <div>
-                <div id="donutchart3"></div>
             </div>
-    </div>
-    </div>
+
+            <div id="container-donutcharts">
+                <div>
+                    <div id="donutchart"></div>
+                </div>
+                <div>
+                    <div id="donutchart2"></div>
+                </div>
+                <div>
+                    <div id="donutchart3"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     </div>
 </body>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof ApexCharts !== 'undefined') {
-                var usersCountByAgeGroup = {!! json_encode($usersCountByAgeGroup) !!};
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof ApexCharts !== 'undefined') {
+            var usersCountByAgeGroup = {!! json_encode($usersCountByAgeGroup) !!};
 
-                var series = Object.values(usersCountByAgeGroup);
-                var labels = Object.keys(usersCountByAgeGroup);
-                console.log('usersCountByAgeGroup: ', usersCountByAgeGroup);
-                var options = {
-                    series: [{
-                        name: 'Personas',
-                        data: series
+            var series = Object.values(usersCountByAgeGroup);
+            var labels = Object.keys(usersCountByAgeGroup);
+            console.log('usersCountByAgeGroup: ', usersCountByAgeGroup);
+            var options = {
+                series: [{
+                    name: 'Personas',
+                    data: series
 
-                    }],
-                    colors: ['#8e2339'],
-                    chart: {
-                        width: '100%',
-                        height: '300px', // Reducir la altura de la gráfica
-                        type: 'bar',
+                }],
+                colors: ['#8e2339'],
+                chart: {
+                    width: '100%',
+                    height: '300px', // Reducir la altura de la gráfica
+                    type: 'bar',
+                },
+                grid: {
+                    show: false
+                },
+                plotOptions: {
+                    bar: {
                     },
-                    grid: {
-                        show: false
-                    },
-                    plotOptions: {
-                        bar: {
+
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'pattern',
+                    pattern: {
+                        style: 'horizontalLines', // string or array of strings
+                        width: 5,
+                        height: 20,
+                        strokeWidth: 30
+                    }
+                },
+                labels: labels,
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
                         },
-
-                    },
-                    dataLabels: {
-                        enabled: false
-                    },
-                    fill: {
-                        type: 'pattern',
-                        pattern: {
-                            style: 'horizontalLines', // string or array of strings
-                            width: 5,
-                            height: 20,
-                            strokeWidth: 30
+                        legend: {
+                            position: 'bottom'
                         }
-                    },
-                    labels: labels,
-                    responsive: [{
-                        breakpoint: 480,
-                        options: {
-                            chart: {
-                                width: 200
-                            },
-                            legend: {
-                                position: 'bottom'
-                            }
-                        }
-                    }]
-                };
+                    }
+                }]
+            };
 
-                initPieChart("#barchart", options);
-            } else {
-                console.error('ApexCharts no está definido. Asegúrate de que se haya cargado correctamente.');
-            }
-        });
-
-        function initPieChart(selector, options) {
-            var chart = new ApexCharts(document.querySelector(selector), options);
-            chart.render();
+            initPieChart("#barchart", options);
+        } else {
+            console.error('ApexCharts no está definido. Asegúrate de que se haya cargado correctamente.');
         }
-    </script>
+    });
+
+    function initPieChart(selector, options) {
+        var chart = new ApexCharts(document.querySelector(selector), options);
+        chart.render();
+    }
+</script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
             var classifiedCount = {!! json_encode($classifiedCount) !!};
@@ -176,14 +177,14 @@
 
                 colors: ['#8e2339', '#dfdede'],
                 states: {
-                            hover: {
-                            filter: {
-                                type: 'none'
-                              }
-                            }
-                        },
+                    hover: {
+                        filter: {
+                            type: 'none'
+                        }
+                    }
+                },
                 series: [classifiedCount['F'],
-                    classifiedCount['total']
+                classifiedCount['total']
                 ],
                 xaxis: {
                     axisBorder: {
@@ -204,7 +205,7 @@
                     breakpoint: 1000,
                     options: {
                         plotOptions: {
-                          
+
                         },
 
                     }
@@ -221,11 +222,11 @@
             console.error('ApexCharts no está definido. Asegúrate de que se haya cargado correctamente.');
         }
     });
-</script>  
+</script>
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
             var classifiedCount = {!! json_encode($classifiedCount) !!};
@@ -252,14 +253,14 @@
 
                 colors: ['#8e2339', '#dfdede'],
                 states: {
-                            hover: {
-                            filter: {
-                                type: 'none'
-                              }
-                            }
-                        },
+                    hover: {
+                        filter: {
+                            type: 'none'
+                        }
+                    }
+                },
                 series: [classifiedCount['M'],
-                    classifiedCount['total']
+                classifiedCount['total']
                 ],
                 xaxis: {
                     axisBorder: {
@@ -302,7 +303,7 @@
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
             var classifiedCount = {!! json_encode($classifiedCount) !!};
@@ -329,14 +330,14 @@
 
                 colors: ['#8e2339', '#dfdede'],
                 states: {
-                            hover: {
-                            filter: {
-                                type: 'none'
-                              }
-                            }
-                        },
+                    hover: {
+                        filter: {
+                            type: 'none'
+                        }
+                    }
+                },
                 series: [classifiedCount['Null'],
-                    classifiedCount['total']
+                classifiedCount['total']
                 ],
                 xaxis: {
                     axisBorder: {
@@ -379,22 +380,22 @@
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
 
             var usersCountByDate = {!! json_encode($usersCountByDate) !!};
 
-            var labels = Object.keys(usersCountByDate); 
-            var series = Object.values(usersCountByDate); 
-            
+            var labels = Object.keys(usersCountByDate);
+            var series = Object.values(usersCountByDate);
+
             // Convertir los datos en una matriz de objetos
             var data = [{
                 name: "Visitas",
                 data: labels.map((label, index) => ({ x: label, y: series[index] }))
             }];
 
-            console.log('usersCountByDate: ',usersCountByDate);
+            console.log('usersCountByDate: ', usersCountByDate);
 
             // Opciones del gráfico
             var options = {
@@ -415,7 +416,7 @@
                             backgroundBarColors: ['#F2F4F6'],
                             backgroundBarRadius: 30,
                         },
-                    },                
+                    },
                 },
                 title: {
                     text: ""
@@ -428,11 +429,11 @@
                     width: 1,
                     colors: ["#fff"]
                 },
-                yaxis:{
+                yaxis: {
                     opposite: false,
-                    
+
                 },
-                
+
                 xaxis: {
                     axisBorder: {
                         show: false
@@ -442,7 +443,7 @@
                     },
                     labels: {
                         show: true,
-                        
+
                     },
                 },
                 responsive: [
@@ -456,7 +457,7 @@
                             },
                             legend: {
                                 position: "bottom",
-                                text:"Número de Personas"
+                                text: "Número de Personas"
                             }
                         }
                     }
@@ -474,7 +475,7 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
             var usersCountByTimeInterval = {!! json_encode($usersCountByTimeInterval) !!};
@@ -509,7 +510,7 @@
                             backgroundBarColors: ['#F2F4F6'],
                             backgroundBarRadius: 15,
                         },
-                    },                
+                    },
                 },
                 title: {
                     text: ""
@@ -590,7 +591,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Verifica si ApexCharts está definido
         if (typeof ApexCharts !== 'undefined') {
             // Define los datos para la gráfica
@@ -599,14 +600,14 @@
                 data: [
                     @foreach ($evaluaciones as $evaluacion)
                         {
-                            x: '{{ $evaluacion->criterio->name }}',
-                            y: {{ $evaluacion->promedio_rank }}
+
+                        x: '{{ $evaluacion->criterio->name }}',
+                        y:  {{ $evaluacion->promedio_rank1 }}
                         },
                     @endforeach
                 ]
-
             }];
-
+            
             // Define las opciones de la gráfica
             var options = {
                 series: data,
@@ -639,7 +640,7 @@
                     width: 1,
                     colors: ["#fff"]
                 },
-                
+
                 xaxis: {
                     axisBorder: {
                         show: false,
@@ -655,34 +656,34 @@
                     show: false,
                 },
                 title: {
-                    text:"" 
+                    text: ""
                 }
             };
 
             // Inicialización del gráfico de ApexCharts
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render().then(() => {
-    var seriesData = chart.w.config.series[0].data;
+                var seriesData = chart.w.config.series[0].data;
 
-    seriesData.forEach(function(datapoint) {
-        // Verifica si el valor de y es mayor que cero antes de agregar la anotación
-        if (datapoint.y > 0) {
-            chart.addPointAnnotation({
-                x: datapoint.y - 100,
-                y: datapoint.x,
-                marker: {
-                    size: 35,
-                    fillColor: '#FFFFFF',
-                },
-                label: {
-                    text: '430',
-                    offsetY: 45,
-                    borderColor: '#FFFFFF',
-                }
+                seriesData.forEach(function (datapoint) {
+                    // Verifica si el valor de y es mayor que cero antes de agregar la anotación
+                    if (datapoint.y > 0) {
+                        chart.addPointAnnotation({
+                            x: datapoint.y - 100,
+                            y: datapoint.x,
+                            marker: {
+                                size: 35,
+                                fillColor: '#FFFFFF',
+                            },
+                            label: {
+                                text: '430',
+                                offsetY: 45,
+                                borderColor: '#FFFFFF',
+                            }
+                        });
+                    }
+                });
             });
-        }
-    });
-});
 
         } else {
             // Manejar el caso en el que ApexCharts no está definido
