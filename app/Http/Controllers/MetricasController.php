@@ -444,7 +444,7 @@ public function limpiarFiltros_stand(Request $request)
             $evaluaciones = Evaluation::with(['criterio'])
                 ->whereIn('criterio_id', $event_criterios)
                 ->groupBy('criterio_id')
-                ->selectRaw("criterio_id, AVG(rank) as avg_rank")
+                ->selectRaw("criterio_id, AVG(`rank`) as avg_rank")
                 ->get();
 
 
@@ -594,7 +594,7 @@ public function limpiarFiltros_stand(Request $request)
         $evaluaciones = Evaluation::with(['criterio'])
             ->whereIn('criterio_id', $event_criterios)
             ->groupBy('criterio_id')
-            ->selectRaw('criterio_id, AVG(rank) as avg_rank')
+            ->selectRaw('criterio_id, AVG(`rank`) as avg_rank')
             ->get();
     
        

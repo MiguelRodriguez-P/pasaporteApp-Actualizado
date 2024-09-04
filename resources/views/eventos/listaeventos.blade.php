@@ -21,6 +21,7 @@
             
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+                    
                     @foreach($eventos as $key => $event)
                         <div class="carousel-item text-center {{ $key === 0 ? 'active' : '' }}">
                             <a href="{{ route('Event.Detallesevento', $event->id) }}">

@@ -150,8 +150,9 @@
                         <label for="numero_imagenes" class="label_color form-labelseleccciónimageneseventoe">Selecciona la cantidad de imágenes para los stands</label>
                         <select name="numero_imagenes" id="numero_imagenes" class="form-controleditevent   form-espacioseventoseditarev" value ="{{$evento->numero_imagenes}}">
                             @for ($i = 1; $i <= 10; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
+                                <option value="{{ $i }}" {{ $evento->numero_imagenes == $i ? 'selected' : '' }}>{{ $i }}</option>  
                             @endfor
+                            
                         </select><br>
                     </div>
                     

@@ -12,6 +12,7 @@ use App\Models\Evaluation;
 
 class CalificacionController extends Controller
 {
+    
 
     public function mostrarFormulario($evento_id, $stand_id)
     {
@@ -24,7 +25,7 @@ class CalificacionController extends Controller
         
         return view('Calificacion.calificacion', ['criterios' => $criterios, 'stand' => $stand]);
     }
- 
+    
 
     //
     // public function mostrarFormulario()
@@ -47,6 +48,8 @@ class CalificacionController extends Controller
     
             // Obtener los datos de los criterios
             $criterios = $request->input('criterios');
+            $stand = Stand::findOrFail($standId);
+            $eventoId = $stand->evento_id;
     
             // Verificar si ya existe una calificación para el usuario en este stand
             $existingEvaluation = Evaluation::where('user_id', auth()->id())
@@ -55,7 +58,7 @@ class CalificacionController extends Controller
     
             // Si ya existe una calificación para este stand, redirigir con mensaje de error
             if ($existingEvaluation) {
-                return redirect()->route('calificacion', ['stand_id' => $standId])
+                return redirect()->route('calificacion', ['evento_id' => $eventoId,  'stand_id' => $standId])
                     ->with('error', 'Ya existe una calificación para este stand.');
             }
             // Guardar cada calificación en la base de datos
