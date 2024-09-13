@@ -46,7 +46,7 @@
         @endauth
         <div class="card-body">
         <div class="row_EventStandEvento mb-5">
-        <?php dump($stands); ?>
+        
         @foreach ($stands as $stand)
                     <div class="custom-col-md-4 mb-5">
                         <div class="card" id="card-standrelacionevenetosSTANDSempre">

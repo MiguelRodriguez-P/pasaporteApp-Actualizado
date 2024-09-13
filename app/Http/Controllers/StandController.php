@@ -47,10 +47,12 @@ class StandController extends Controller
      */
     public function inicio()
     {
-         $this->userInauthenticated();
+        $this->userInauthenticated();
         $stands = Stand::where('user_id', $this->user->id)->get();
-        
-        return view('stands/empresa_stands', compact('stands'));
+        $califistan = Evaluation::select('stand_id', Evaluation::raw('AVG(`rank`) as promedio_valor'))
+        ->groupBy('stand_id')
+        ->get();
+        return view('stands/empresa_stands', compact('stands', 'califistan'));
     }
     public function index()
 {
